@@ -1,0 +1,27 @@
+
+<form [formGroup]="loginForm">
+  <div class="form-group col-12">
+    <label for="username" class="form-label">Username</label>
+    <input
+      type="text"
+      class="form-control"
+      formControlName="username"
+    />
+    <div class="invalid-text" *ngIf="!Username.valid && Username.touched">
+      Username is required!
+    </div>
+
+    <label for="password" class="form-label">Password</label>
+    <input
+      type="password"
+      class="form-control"
+      formControlName="password"
+    />
+    <div class="invalid-text" *ngIf="!Password.valid && Password.touched">
+      Password is required!
+    </div>
+
+    <button class="col btn btn-primary mt-3" type="submit" [disabled]="!loginForm.valid" (click)="loginProcess()">Login</button>
+  </div>
+
+</form>
